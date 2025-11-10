@@ -1,4 +1,4 @@
-# Mi Módulo Personalizado
+# Modulo-Odoo
 
 Módulo personalizado de Odoo para gestión de registros con diferentes niveles de seguridad.
 
@@ -21,4 +21,3 @@ Módulo personalizado de Odoo para gestión de registros con diferentes niveles 
 Los permisos se configuran en:
 - Ajustes → Usuarios → Gestionar Usuarios
 - Sección: Administration / Records
-# Modulo-Odoo
