@@ -39,3 +39,4 @@ ModuloPropioOdoo/
 El modulo de PC_Inventory :
 
 Lo que hace es poder crear componentes con su precio para luego en ordenadores , poder meter componentes y lo que hace es el dinero de cada componente sumar el total
+Basicamente se usa dandole a nuevo y rellenando todos los campos eso en componentes , una vez rellenado componentes se va a ordenadores y eliges los componentes para ver el precio total del ordenador
