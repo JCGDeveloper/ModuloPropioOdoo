@@ -33,19 +33,9 @@ ModuloPropioOdoo/
 
 4. **Instalar el módulo:**
    - Ve a: **Aplicaciones** (Apps)
-   - Busca "Mi Módulo" o el nombre que hayas puesto en el `__manifest__.py`
+   - Busca "Mi Módulo" `__manifest__.py`
    - Haz clic en **Instalar**
 
-### Notas
+El modulo de PC_Inventory :
 
-- El módulo está montado en `/mnt/extra-addons` dentro del contenedor
-- Los cambios en los archivos del módulo se reflejan automáticamente (no necesitas reiniciar)
-- Para aplicar cambios en el `__manifest__.py`, necesitas actualizar el módulo desde la interfaz de Odoo
-
-### Personalización
-
-Puedes editar el archivo `mi_modulo/__manifest__.py` para:
-- Cambiar el nombre del módulo
-- Añadir dependencias
-- Configurar vistas, modelos, etc.
-# OdooModules
+Lo que hace es poder crear componentes con su precio para luego en ordenadores , poder meter componentes y lo que hace es el dinero de cada componente sumar el total
