@@ -1,23 +1,18 @@
-# Modulo-Odoo
+# Modulo Odoo
 
-Módulo personalizado de Odoo para gestión de registros con diferentes niveles de seguridad.
+Modulo personalizado de Odoo para gestion de registros con diferentes niveles de seguridad
 
-## Características
+Caracteristicas
+Modelo de registro con campos basicos
+Sistema de seguridad con grupos de usuarios
+Dos niveles de acceso
+User con lectura y edicion
+Manager con acceso completo crear leer editar eliminar
 
-- Modelo de registro con campos básicos
-- Sistema de seguridad con grupos de usuarios
-- Dos niveles de acceso:
-  - **User**: Lectura y edición
-  - **Manager**: Acceso completo (crear, leer, editar, eliminar)
+Instalacion
+Copiar el modulo a la carpeta de addons de Odoo
+Actualizar lista de aplicaciones
+Instalar Mi Modulo Personalizado
 
-## Instalación
-
-1. Copiar el módulo a la carpeta de addons de Odoo
-2. Actualizar lista de aplicaciones
-3. Instalar "Mi Módulo Personalizado"
-
-## Configuración
-
-Los permisos se configuran en:
-- Ajustes → Usuarios → Gestionar Usuarios
-- Sección: Administration / Records
+Configuracion
+Los permisos se configuran en Ajustes Usuarios Gestionar Usuarios en la seccion Administration Records
