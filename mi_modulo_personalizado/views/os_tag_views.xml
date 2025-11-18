@@ -31,4 +31,6 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <menuitem id="menu_pc_tag" name="Sistemas Operativos" parent="menu_pc_root" action="action_pc_os_tag" sequence="30" groups="group_pc_assets_manager"/>
+
 </odoo>
