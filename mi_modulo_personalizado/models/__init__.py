@@ -3,3 +3,4 @@
 from . import component
 from . import computer
 from . import os_tag
+from . import registro

@@ -4,3 +4,5 @@ access_pc_component_manager,pc.component.manager,model_pc_component,group_pc_ass
 access_pc_computer_user,pc.computer.user,model_pc_computer,group_pc_assets_user,1,1,1,0
 access_pc_computer_manager,pc.computer.manager,model_pc_computer,group_pc_assets_manager,1,1,1,1
 access_pc_os_tag_manager,pc.os.tag.manager,model_pc_os_tag,group_pc_assets_manager,1,1,1,1
+access_mmp_registro_user,mi_modulo_personalizado.registro.user,model_mi_modulo_personalizado_registro,group_pc_assets_user,1,1,1,0
+access_mmp_registro_manager,mi_modulo_personalizado.registro.manager,model_mi_modulo_personalizado_registro,group_pc_assets_manager,1,1,1,1
