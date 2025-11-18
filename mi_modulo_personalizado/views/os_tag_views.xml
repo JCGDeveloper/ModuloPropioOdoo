@@ -2,12 +2,12 @@
 <odoo>
 
     <record id="view_pc_os_tag_tree" model="ir.ui.view">
-        <field name="name">pc.os.tag.tree</field>
+        <field name="name">pc.os.tag.list</field>
         <field name="model">pc.os.tag</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
-            </tree>
+            </list>
         </field>
     </record>
 

@@ -2,15 +2,15 @@
 <odoo>
 
     <record id="view_pc_computer_tree" model="ir.ui.view">
-        <field name="name">pc.computer.tree</field>
+        <field name="name">pc.computer.list</field>
         <field name="model">pc.computer</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="number"/>
                 <field name="user_id"/>
                 <field name="last_mod_date"/>
                 <field name="price_total"/>
-            </tree>
+            </list>
         </field>
     </record>
 

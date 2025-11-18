@@ -2,13 +2,13 @@
 <odoo>
 
     <record id="view_pc_component_tree" model="ir.ui.view">
-        <field name="name">pc.component.tree</field>
+        <field name="name">pc.component.list</field>
         <field name="model">pc.component</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="price"/>
-            </tree>
+            </list>
         </field>
     </record>
 
