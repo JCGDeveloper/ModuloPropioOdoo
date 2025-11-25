@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_paquete_user,access_paquete_user,model_paqueteria_paquete,,1,1,1,1
+access_seguimiento_user,access_seguimiento_user,model_paqueteria_seguimiento,,1,1,1,1
+access_camion_user,access_camion_user,model_paqueteria_camion,,1,1,1,1

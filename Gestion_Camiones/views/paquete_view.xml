@@ -1,0 +1,77 @@
+<odoo>
+    <!-- Vistas de Paquete -->
+    <record id="view_paquete_tree" model="ir.ui.view">
+        <field name="name">paqueteria.paquete.tree</field>
+        <field name="model">paqueteria.paquete</field>
+        <field name="arch" type="xml">
+            <tree string="Paquetes">
+                <field name="tracking_number"/>
+                <field name="remitente_id"/>
+                <field name="destinatario_id"/>
+                <field name="camion_id"/>
+                <field name="last_update"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_paquete_form" model="ir.ui.view">
+        <field name="name">paqueteria.paquete.form</field>
+        <field name="model">paqueteria.paquete</field>
+        <field name="arch" type="xml">
+            <form string="Paquete">
+                <sheet>
+                    <group>
+                        <field name="tracking_number"/>
+                        <field name="remitente_id"/>
+                        <field name="destinatario_id"/>
+                    </group>
+                    <group>
+                        <field name="pais_id"/>
+                        <field name="region_id"/>
+                        <field name="municipio"/>
+                        <field name="calle"/>
+                        <field name="numero"/>
+                    </group>
+                    <group>
+                        <field name="info_adicional"/>
+                    </group>
+                    <group>
+                        <field name="camion_id"/>
+                        <field name="last_update" readonly="1"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Seguimiento">
+                            <field name="actualizaciones_ids">
+                                <tree editable="bottom">
+                                    <field name="fecha"/>
+                                    <field name="estado"/>
+                                    <field name="notas"/>
+                                    <field name="user_id"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="fecha"/>
+                                        <field name="estado"/>
+                                        <field name="notas"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acción -->
+    <record id="action_paquetes" model="ir.actions.act_window">
+        <field name="name">Paquetes</field>
+        <field name="res_model">paqueteria.paquete</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menús -->
+    <menuitem id="menu_paqueteria_root" name="Paquetería" sequence="10"/>
+    <menuitem id="menu_paqueteria_paquetes" name="Paquetes" parent="menu_paqueteria_root" action="action_paquetes"/>
+</odoo>

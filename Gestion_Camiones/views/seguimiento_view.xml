@@ -1,0 +1,46 @@
+<odoo>
+    <record id="view_seguimiento_tree" model="ir.ui.view">
+        <field name="name">paqueteria.seguimiento.tree</field>
+        <field name="model">paqueteria.seguimiento</field>
+        <field name="arch" type="xml">
+            <tree string="Seguimientos">
+                <field name="paquete_id"/>
+                <field name="fecha"/>
+                <field name="estado"/>
+                <field name="user_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_seguimiento_form" model="ir.ui.view">
+        <field name="name">paqueteria.seguimiento.form</field>
+        <field name="model">paqueteria.seguimiento</field>
+        <field name="arch" type="xml">
+            <form string="Seguimiento">
+                <sheet>
+                    <group>
+                        <field name="paquete_id"/>
+                        <field name="fecha"/>
+                        <field name="estado"/>
+                    </group>
+                    <group>
+                        <field name="notas"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_seguimientos" model="ir.actions.act_window">
+        <field name="name">Seguimientos</field>
+        <field name="res_model">paqueteria.seguimiento</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem 
+        id="menu_paqueteria_seguimientos" 
+        name="Seguimientos" 
+        parent="menu_paqueteria_root" 
+        action="action_seguimientos"
+    />
+</odoo>
