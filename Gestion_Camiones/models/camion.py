@@ -1,15 +1,10 @@
-
 from odoo import models, fields
 
-
 class Camion(models.Model):
-    _name = "paqueteria_camion"
+    _name = "paqueteria.camion"
     _description = "Camión de la Flota"
 
-    matricula = fields.Char(
-        string="Número de matrícula",
-        required=True
-    )
+    matricula = fields.Char(string="Número de matrícula", required=True)
 
     conductor_actual_id = fields.Many2one(
         "hr.employee",
@@ -21,24 +16,16 @@ class Camion(models.Model):
         string="Antiguos conductores"
     )
 
-    fecha_itv = fields.Date(
-        string="Fecha de la última ITV"
-    )
+    fecha_itv = fields.Date(string="Fecha de la última ITV")
 
-    notas_mantenimiento = fields.Text(
-        string="Notas de mantenimiento"
-    )
+    notas_mantenimiento = fields.Text(string="Notas de mantenimiento")
 
     paquetes_ids = fields.One2many(
-        "paqueteria_paquete",
+        "paqueteria.paquete",
         "camion_id",
         string="Paquetes transportados"
     )
 
     _sql_constraints = [
-        (
-            'matricula_unique',
-            'unique(matricula)',
-            'La matrícula del camión debe ser única.'
-        )
+        ('matricula_unique', 'unique(matricula)', 'La matrícula del camión debe ser única.')
     ]

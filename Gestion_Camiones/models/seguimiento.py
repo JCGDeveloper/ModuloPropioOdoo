@@ -1,14 +1,11 @@
-# -*- coding: utf-8 -*-
-
 from odoo import models, fields
 
-
 class Seguimiento(models.Model):
-    _name = "paqueteria_seguimiento"
+    _name = "paqueteria.seguimiento"
     _description = "Actualización de Envío"
 
     paquete_id = fields.Many2one(
-        "paqueteria_paquete",
+        "paqueteria.paquete",
         string="Paquete",
         required=True
     )
@@ -30,6 +27,4 @@ class Seguimiento(models.Model):
         required=True
     )
 
-    notas = fields.Text(
-        string="Notas adicionales"
-    )
+    notas = fields.Text(string="Notas adicionales")

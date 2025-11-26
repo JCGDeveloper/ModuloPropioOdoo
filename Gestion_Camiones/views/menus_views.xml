@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Menú raíz -->
+    <menuitem id="paqueteria_menu_root" name="Paquetería"/>
+
+    <!-- Menús secundarios -->
+    <menuitem id="paqueteria_menu_paquetes" name="Paquetes" parent="paqueteria_menu_root"/>
+    <menuitem id="paqueteria_menu_seguimiento" name="Seguimiento" parent="paqueteria_menu_root"/>
+    <menuitem id="paqueteria_menu_camiones" name="Camiones" parent="paqueteria_menu_root"/>
+
+    <!-- Acciones -->
+    <record id="action_paquete" model="ir.actions.act_window">
+        <field name="name">Paquetes</field>
+        <field name="res_model">paqueteria.paquete</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_paquete_action" name="Lista de Paquetes" parent="paqueteria_menu_paquetes" action="action_paquete"/>
+
+    <record id="action_seguimiento" model="ir.actions.act_window">
+        <field name="name">Seguimiento</field>
+        <field name="res_model">paqueteria.seguimiento</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_seguimiento_action" name="Lista de Seguimiento" parent="paqueteria_menu_seguimiento" action="action_seguimiento"/>
+
+    <record id="action_camion" model="ir.actions.act_window">
+        <field name="name">Camiones</field>
+        <field name="res_model">paqueteria.camion</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_camion_action" name="Lista de Camiones" parent="paqueteria_menu_camiones" action="action_camion"/>
+</odoo>

@@ -9,7 +9,7 @@
         - Seguimiento de cada paquete con estado y notas
         - Camiones de la flota y sus conductores
     """,
-    'author': 'Tu Nombre',
+    'author': 'Joaquin Carrasco',
     'category': 'Operations/Logistics',
     'depends': ['base', 'hr'],
     'data': [
@@ -17,6 +17,7 @@
         'views/paquete_views.xml',
         'views/seguimiento_views.xml',
         'views/camion_views.xml',
+        'views/menus_views.xml',
     ],
     'installable': True,
     'application': True,
