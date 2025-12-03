@@ -35,10 +35,12 @@
                             </group>
                         </group>
                         <group>
+                            <field name="date_from" invisible="1"/>
+                            <field name="date_to" invisible="1"/>
                             <field name="payroll_ids" widget="many2many_tags"
                                    domain="[('employee_id', '=', employee_id),
-                                            ('date', '&gt;=', year and ('%s-01-01' % year)),
-                                            ('date', '&lt;=', year and ('%s-12-31' % year))]"/>
+                                            ('date', '&gt;=', date_from or False),
+                                            ('date', '&lt;=', date_to or False)]"/>
                         </group>
                     </sheet>
                 </form>

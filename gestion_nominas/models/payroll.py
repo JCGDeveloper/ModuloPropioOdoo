@@ -11,7 +11,7 @@ class Payroll(models.Model):
     name = fields.Char(
         string='Referencia',
         required=True,
-        default=lambda self: _('Nuevo'),
+        default=lambda self: _('Nuevo'), #Esto sirve para que al crear un nuevo registro aparezca "Nuevo" en lugar de estar vacío ademas el _ es para traducción de odoo
         copy=False,
     )
     employee_id = fields.Many2one(

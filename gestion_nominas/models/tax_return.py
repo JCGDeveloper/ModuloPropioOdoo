@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
-from datetime import datetime
+from datetime import datetime, date
 
 
 class IncomeTaxReturn(models.Model):
@@ -45,6 +45,16 @@ class IncomeTaxReturn(models.Model):
         'nomina_id',
         string='Nóminas',
     )
+    date_from = fields.Date(
+        string='Fecha desde',
+        compute='_compute_year_limits',
+        store=True,
+    )
+    date_to = fields.Date(
+        string='Fecha hasta',
+        compute='_compute_year_limits',
+        store=True,
+    )
     salary_total = fields.Monetary(
         string='Sueldo bruto total',
         compute='_compute_totals',
@@ -75,6 +85,16 @@ class IncomeTaxReturn(models.Model):
             record.salary_total = salary_total
             record.irpf_total = irpf_total
             record.payroll_count = len(record.payroll_ids)
+
+    @api.depends('year')
+    def _compute_year_limits(self):
+        for record in self:
+            if record.year:
+                record.date_from = date(record.year, 1, 1)
+                record.date_to = date(record.year, 12, 31)
+            else:
+                record.date_from = False
+                record.date_to = False
 
     @api.constrains('payroll_ids', 'employee_id', 'year')
     def _check_payrolls(self):
