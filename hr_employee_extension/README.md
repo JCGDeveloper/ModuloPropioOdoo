@@ -32,3 +32,13 @@ Se ha extendido la vista de formulario del empleado (`hr.view_employee_form`) ut
 2. Acceder al módulo de **Empleados**.
 3. Al crear o editar un empleado, completar los campos **DNI** y **NSS**.
 4. El sistema impedirá guardar si los datos no cumplen con el formato o la validación matemática.
+
+## Capturas de Pantalla
+
+### Vista del Formulario
+Los nuevos campos **DNI** y **NSS** aparecen integrados en la pestaña "Información Privada".
+![Formulario Empleado](static/description/formulario_empleado.png)
+
+### Validación de Errores
+Ejemplo de mensaje de error cuando la letra del DNI no corresponde al número introducido.
+![Error Validación DNI](static/description/error_dni.png)
