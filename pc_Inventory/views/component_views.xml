@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_pc_component_list" model="ir.ui.view">
+    <field name="name">pc.component.list</field>
+    <field name="model">pc.component</field>
+    <field name="arch" type="xml">
+      <list string="Componentes">
+        <field name="name"/>
+        <field name="price"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_pc_component_form" model="ir.ui.view">
+    <field name="name">pc.component.form</field>
+    <field name="model">pc.component</field>
+    <field name="arch" type="xml">
+      <form string="Componente">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="price"/>
+              <field name="currency_id" invisible="1"/>
+            </group>
+          </group>
+          <group>
+            <field name="specs" placeholder="Describe las especificaciones del componente..."/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_pc_component" model="ir.actions.act_window">
+    <field name="name">Componentes</field>
+    <field name="res_model">pc.component</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <menuitem id="menu_pc_root" name="Inventario PC"/>
+  <menuitem id="menu_pc_components" name="Componentes" parent="menu_pc_root" action="action_pc_component"/>
+</odoo>

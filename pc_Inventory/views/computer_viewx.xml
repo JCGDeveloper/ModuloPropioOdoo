@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_pc_computer_list" model="ir.ui.view">
+    <field name="name">pc.computer.list</field>
+    <field name="model">pc.computer</field>
+    <field name="arch" type="xml">
+      <list string="Ordenadores">
+        <field name="name"/>
+        <field name="user_id"/>
+        <field name="total_price"/>
+        <field name="last_update"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_pc_computer_form" model="ir.ui.view">
+    <field name="name">pc.computer.form</field>
+    <field name="model">pc.computer</field>
+    <field name="arch" type="xml">
+      <form string="Ordenador">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="user_id"/>
+              <field name="last_update"/>
+            </group>
+            <group>
+              <field name="total_price" readonly="1"/>
+              <field name="currency_id" invisible="1"/>
+            </group>
+          </group>
+          <group>
+            <field name="tag_ids" widget="many2many_tags" placeholder="Añadir SO..."/>
+          </group>
+          <group>
+            <field name="component_ids" widget="many2many_tags" placeholder="Añadir componentes..."/>
+          </group>
+          <notebook>
+            <page string="Incidencias">
+              <field name="incident" placeholder="Describe las incidencias del equipo..."/>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_pc_computer" model="ir.actions.act_window">
+    <field name="name">Ordenadores</field>
+    <field name="res_model">pc.computer</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <menuitem id="menu_pc_computers" name="Ordenadores" parent="menu_pc_root" action="action_pc_computer"/>
+</odoo>

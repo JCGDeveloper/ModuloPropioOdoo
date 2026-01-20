@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_gestion_nominas_root"
+                  name="Nóminas"
+                  parent="hr.menu_hr_root"
+                  sequence="40"/>
+
+        <menuitem id="menu_gestion_nominas_payroll"
+                  name="Listado de nóminas"
+                  parent="menu_gestion_nominas_root"
+                  action="action_gestion_nomina"
+                  sequence="10"/>
+
+        <menuitem id="menu_gestion_nominas_tax_returns"
+                  name="Declaraciones anuales"
+                  parent="menu_gestion_nominas_root"
+                  action="action_gestion_declaracion_tree"
+                  sequence="20"/>
+    </data>
+</odoo>

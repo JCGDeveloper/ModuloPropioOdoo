@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gestion_nomina_user,gestion.nomina.user,model_gestion_nomina,hr.group_hr_user,1,1,1,0
+access_gestion_nomina_manager,gestion.nomina.manager,model_gestion_nomina,hr.group_hr_manager,1,1,1,1
+access_gestion_nomina_ajuste_user,gestion.nomina.ajuste.user,model_gestion_nomina_ajuste,hr.group_hr_user,1,1,1,0
+access_gestion_nomina_ajuste_manager,gestion.nomina.ajuste.manager,model_gestion_nomina_ajuste,hr.group_hr_manager,1,1,1,1
+access_gestion_declaracion_user,gestion.declaracion.user,model_gestion_declaracion_renta,hr.group_hr_user,1,1,1,0
+access_gestion_declaracion_manager,gestion.declaracion.manager,model_gestion_declaracion_renta,hr.group_hr_manager,1,1,1,1
