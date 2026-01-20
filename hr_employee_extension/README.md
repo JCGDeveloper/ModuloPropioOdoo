@@ -1,42 +1,34 @@
-# Tarea 13: Extensión de Módulos (El Hackeo a RRHH 🚀)
+# Tarea 13 – Extensión de Módulos (Gestión de Personal �)
 
-¡Buenas! A ver, aquí dejo lo que hay que hacer para la Tarea 13, explicado en cristiano para que no nos liemos. Básicamente vamos a "tunear" el módulo de empleados para que Odoo se trague los DNI y los números de la Seguridad Social de España bien validados.
+Este módulo implementa la **Tarea 13** del curso de **Sistemas de Gestión Empresarial**. El objetivo es extender el módulo base de empleados (`hr.employee`) para incluir y validar identificadores oficiales españoles.
 
-## ¿Qué hay que hacer? 📝
+## Objetivos Cumplidos ✅
 
-Hay que crear un módulo nuevo (yo lo he llamado `hr_employee_extension`) que herede del de empleados (`hr.employee`). Nada de tocar el código base de Odoo que luego se rompe todo en las actualizaciones, ¿eh? Usamos la herencia como buenos ciudadanos.
+Siguiendo las especificaciones de la tarea, se han realizado las siguientes implementaciones:
 
-### 1. El Módulo 📦
-Creamos la carpeta del módulo con su `__manifest__.py` y el `__init__.py`. En el manifiesto poner que dependemos de `hr` porque sin empleados no hay paraíso.
+### 1. Extensión del Modelo `hr.employee` 📂
+Se ha creado un nuevo módulo que hereda del modelo de empleados para añadir dos nuevos campos:
+- **DNI (Documento Nacional de Identidad)** 🆔
+- **NSS (Número de la Seguridad Social)** 🏥
 
-### 2. Los Campos Nuevos (Python) 🐍
-En `models/hr_employee.py` extendemos la clase `hr.employee`:
-- **DNI**: Un campo Char. Ojo, tiene validación.
-  - La letra tiene que cuadrar. Dividimos el número entre 23 y el resto nos dice la letra (buscad la tabla esa de `TRWAGMY...`). Si no cuadra, `ValidationError` al canto.
-- **NSS (Seguridad Social)**: Otro Char.
-  - Formato: 2 dígitos provincia + 8 número + 2 control.
-  - El truco: `(Provincia + Número) % 97` tiene que coincidir con los dígitos de control. Si no, ¡error!
+### 2. Lógica de Verificación (Python) 🐍
+Se ha implementado un método de verificación (`constrains`) que asegura la integridad de los datos introducidos:
 
-### 3. La Vista (XML) 👁️
-En `views/hr_employee_views.xml` heredamos la vista `hr.view_employee_form`.
-Usamos **XPath** (esa cosa rara) para meter nuestros campos `dni` y `nss` donde queden bonitos. Por ejemplo, después del email o el teléfono.
+- **Validación DNI**:
+  - Se comprueba que el formato sea correcto (8 dígitos numéricos seguidos de una letra).
+  - Se verifica que la letra de control sea la correcta según el algoritmo del Ministerio del Interior (módulo 23).
 
-```xml
-<xpath expr="//field[@name='mobile_phone']" position="after">
-    <field name="dni"/>
-    <field name="nss"/>
-</xpath>
-```
+- **Validación NSS**:
+  - Se verifica que la longitud sea de 12 caracteres.
+  - Se valida la estructura: 2 dígitos de provincia + 8 dígitos identificativos + 2 dígitos de control.
+  - Se comprueba que los dígitos de control sean correctos mediante el cálculo: `(Provincia + Número) % 97`.
 
-### 4. Seguridad 🔒
-No os olvidéis del `ir.model.access.csv` aunque sea heredado, a veces da guerra si añadimos modelos nuevos, pero aquí como heredamos igual nos libramos, pero mejor revisar si hace falta dar permisos. (En este caso al solo extender campos en modelo existente, los permisos del modelo base suelen valer, pero lo revisamos).
+### 3. Actualización de la Vista (XML) 👁️
+Se ha extendido la vista de formulario del empleado (`hr.view_employee_form`) utilizando **XPath**.
+- Los nuevos campos **DNI** y **NSS** se visualizan correctamente en la ficha del empleado, situados tras la información de contacto básica.
 
-## Resumen para vagos
-1. Crear módulo.
-2. `_inherit = 'hr.employee'`.
-3. Meter campos `dni` y `nss`.
-4. Meter funciones `@api.constrains` para validar matemáticas.
-5. XML con XPath para que se vean.
-6. Instalar y probar que si metes un DNI falso te grite.
-
-¡Ale, a currar! 💪
+## Instalación y Uso 🚀
+1. Instalar el módulo en la instancia de Odoo.
+2. Acceder al módulo de **Empleados**.
+3. Al crear o editar un empleado, completar los campos **DNI** y **NSS**.
+4. El sistema impedirá guardar si los datos no cumplen con el formato o la validación matemática.
