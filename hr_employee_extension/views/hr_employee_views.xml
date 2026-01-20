@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_form_extension" model="ir.ui.view">
+        <field name="name">hr.employee.form.extension</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='mobile_phone']" position="after">
+                <field name="dni"/>
+                <field name="nss"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
